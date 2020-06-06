@@ -2,7 +2,7 @@
 # Cookbook:: effortless
 # Recipe:: default
 #
-# Copyright:: 2020, The Authors, All Rights Reserved.
+# Copyright:: 2020, Collin McNeese, All Rights Reserved.
 
 hab_pkg 'core/jq-static'
 hab_service 'core/nginx'
