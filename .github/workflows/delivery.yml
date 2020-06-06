@@ -19,9 +19,9 @@
           run: cookstyle .
         - name: Install Kitchen Docker
           run: chef exec gem install kitchen-docker
+          env:
+            CHEF_LICENSE: accept-no-persist
         - name: Kitchen Test
           run: kitchen test --color
           env:
             CHEF_LICENSE: accept-no-persist
-            HAB_LICENSE: accept-no-persist
-
