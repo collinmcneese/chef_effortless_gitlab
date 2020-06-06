@@ -8,24 +8,15 @@
       #   - master
 
   jobs:
-    delivery:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Check out code
-          uses: actions/checkout@master
-        - name: Run Chef Delivery
-          uses: actionshub/chef-delivery@master
-          env:
-            CHEF_LICENSE: accept-no-persist
-
     test:
-      needs: [delivery]
       runs-on: ubuntu-latest
       steps:
         - name: Check out code
           uses: actions/checkout@master
         - name: Install Chef
           uses: actionshub/chef-install@master
+        - name: Cookstyle Sweep
+          run: cookstyle .
         - name: Install Kitchen Docker
           run: chef exec gem install kitchen-docker
         - name: Kitchen Test
