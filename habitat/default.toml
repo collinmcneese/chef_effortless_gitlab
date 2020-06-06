@@ -1,0 +1,16 @@
+# Use this file to templatize your application's native configuration files.
+# See the docs at https://www.habitat.sh/docs/create-packages-configure/.
+# You can safely delete this file if you don't need it.
+
+# Chef Infra Client Configuration
+interval = 30
+splay = 10
+splay_first_run = 0
+run_lock_timeout = 30
+log_level = "warn"
+env_path_prefix = "/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin"
+verify_api_cert = false
+ssl_verify_mode = ':verify_none'
+
+[chef_license]
+acceptance = "accept"

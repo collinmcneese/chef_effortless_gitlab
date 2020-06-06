@@ -1,0 +1,182 @@
+*.lock.json
+
+## Ignore Chef related files and secrets
+.chef
+.chef/*.pem
+.chef/encrypted_data_bag_secret
+
+## Ignore Chef-Zero files
+clients
+nodes
+
+# ## OS junk files
+# [Tt]humbs.db
+# *.DS_Store
+
+# ## Example of the workstation pattern.
+# !/cookbooks/chef_workstation/files/default/bundler/Gemfile
+# !/cookbooks/chef_workstation/files/default/bundler/Gemfile.lock
+# cookbooks/*
+# !cookbooks/chef_workstation
+
+# ##Chef
+# .kitchen/
+# .vagrant
+# nodes
+# metadata.json
+
+# ##ruby
+# *.gem
+# Gemfile
+# Gemfile.lock
+.rake_test_cache
+
+# ## Rails Heroku and other bits to ignore
+# *.log
+# *.sqlite3
+# db/*.sqlite3
+# .bundle
+# log/*
+# tmp/*
+# public/system/*
+
+# ## nodejs
+# node_modules
+
+# ## Nuget (exclude all exes except for the one in the global build folder)
+# nuget.exe
+# !build/nuget/nuget.exe
+# *.nupkg
+# # NuGet packages (based on default naming convention)
+# [Bb]uild/[Pp]ackages/
+
+# ## Build System # common build output folders
+# build-common/
+# output/
+
+# ## VM images
+# *.vhd
+# *.vhdx
+
+# ## Pester Test summary
+# Test.xml
+
+# ## JetBrains files
+# *.idea
+# .idea
+# .idea/
+
+# ## Mono files
+# *.pidb
+# *.userprefs
+
+# ## Visual Studio files
+# *.docstates
+# *.[Oo]bj
+# *.dat
+# *.crc
+# *.dbmdl
+# *.pdb
+# *.user
+# *.aps
+# *.pch
+# *.vspscc
+# *.vssscc
+# *_i.c
+# *_p.c
+# *.ncb
+# *.suo
+# *.tlb
+# *.tlh
+# *.bak
+# *.[Cc]ache
+# *.ilk
+# *.log
+# *.lib
+# *.sbr
+# *.schemaview
+# ipch/
+# [Oo]bj/
+# [Bb]in/*
+# [Dd]ebug*/
+# [Rr]elease*/
+# Ankh.NoLoad
+
+# ## Tooling
+# _ReSharper*/
+# *.[Rr]e[Ss]harper
+# [Tt]est[Rr]esult*
+# .[Jj]ust[Cc]ode
+# *ncrunch*
+
+# ## Subversion files
+# .svn
+
+# ## Office Temp Files
+# ~$*
+results/
+
+
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,chefcookbook,vagrant,macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,chefcookbook,vagrant,macos
+
+### ChefCookbook ###
+.vagrant
+
+# Bundler
+bin/*
+.bundle/*
+
+.kitchen/
+.kitchen.local.yml
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Vagrant ###
+# General
+.vagrant/
+
+# Log files (if you are creating logs in debug mode, uncomment this)
+# *.logs
+
+### Vagrant Patch ###
+*.box
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,chefcookbook,vagrant,macos

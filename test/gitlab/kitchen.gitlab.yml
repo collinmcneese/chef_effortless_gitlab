@@ -1,0 +1,36 @@
+---
+driver:
+  name: docker
+  privileged: true
+
+transport:
+  name: docker
+  env_variables:
+    GIT_REPO_URL: <%= ENV['CI_REPOSITORY_URL'] %>
+    GIT_COMMIT_ID: <%= ENV['CI_COMMIT_SHA'] %>
+    GIT_PROJECT_NAME: <%= ENV['CI_PROJECT_NAME'] %>
+    GIT_BRANCH_NAME: <%= ENV['CI_COMMIT_REF_NAME'] %>
+    # Populate GitLab server info to add to /etc/hosts on created container, if needed
+    GITLAB_SERVER_IP: ''
+    GITLAB_SERVER_HOSTNAME: ''
+    HAB_AUTH_TOKEN: <%= ENV['HAB_AUTH_TOKEN'] %>
+    HAB_BLDR_URL: 'https://bldr.habitat.sh'
+
+provisioner:
+  name: shell
+
+verifier:
+  name: inspec
+
+platforms:
+- name: centos-8
+  driver:
+    image: centos
+
+suites:
+  - name: effortless
+    provisioner:
+      script: 'test/scripts/hab-build-pipeline.sh'
+    verifier:
+      inspec_tests:
+        - test/integration/default

@@ -1,0 +1,32 @@
+---
+driver:
+  name: docker
+  # privileged: true
+  # Pass the current directory to /kitchen on the container
+  volume: <%= __dir__ %>:/kitchen
+
+transport:
+  name: docker
+  env_variables:
+    HAB_AUTH_TOKEN: <%= ENV['HAB_AUTH_TOKEN'] %>
+    HAB_BLDR_URL: 'https://bldr.habitat.sh'
+    HAB_UPLOAD: false # Set to true to auto-upload built pacakges to Habitat Builder
+
+provisioner:
+  name: shell
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu
+    driver:
+      image: ubuntu
+
+suites:
+  - name: effortless
+    provisioner:
+      script: 'test/scripts/hab-build-local-docker.sh'
+    verifier:
+      inspec_tests:
+        - test/integration/default

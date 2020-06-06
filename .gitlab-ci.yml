@@ -1,0 +1,28 @@
+stages:
+  - prep
+  - verify
+  - build
+
+variables:
+  CHEF_LICENSE: accept-no-persist
+
+image: alpine
+
+verify:
+  stage: verify
+  script:
+    - cookstyle -a .
+
+policyfile_check:
+  stage: verify
+  script:
+    - chef install policyfiles/*.rb
+
+build:
+  stage: build
+  script:
+    # Set || operator so that Gitlab will clean up kitchen instances properly within same workspace
+    - kitchen test --color || (kitchen destroy && exit 1)
+    - kitchen destroy
+  variables:
+    KITCHEN_YAML: 'test/gitlab/kitchen.gitlab.yml'
