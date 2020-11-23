@@ -6,7 +6,7 @@ stages:
 variables:
   CHEF_LICENSE: accept-no-persist
 
-image: alpine
+image: chef/chefworkstation
 
 verify:
   stage: verify
